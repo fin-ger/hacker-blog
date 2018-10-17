@@ -1,24 +1,52 @@
 /*
-   original: https://github.com/pages-themes/hacker 
+   original: https://github.com/pages-themes/hacker
 */
 
 @import "rouge-base16-dark";
 @import "default_colors";
 
-$body-background: $cod-grey !default;
-$body-foreground: $gallery !default;
-$header: $conifer !default;
+@font-face {
+  font-family: 'Hack';
+  src: url('assets/Hack-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hack';
+  src: url('assets/Hack-Bold.ttf') format('ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hack';
+  src: url('assets/Hack-Italic.ttf') format('ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Hack';
+  src: url('assets/Hack-BoldItalic.ttf') format('ttf');
+  font-weight: 700;
+  font-style: italic;
+}
+
+$body-background: #fff !default;
+$body-foreground: $cod-grey !default;
+$header: #c1b900 !default;
 $blockquote-color: $silver-chalice !default;
 $blockquote-border: $dove-grey !default;
 
 body {
   margin: 0;
   padding: 0;
-  background: $body-background url("../assets/bkg.png") 0 0;
+  background: $body-background;
   color: $body-foreground;
   font-size: 16px;
   line-height: 1.5;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-family: Hack;
 }
 
 /* General & 'Reset' Stuff */
@@ -50,10 +78,9 @@ li {
 */
 
 header {
-  background: rgba(0, 0, 0, 0.1);
-  border-bottom: 1px dashed $conifer; //header;
-  padding: 20px;
-  margin: 0 0 40px 0;
+  background: #311036;
+  padding: 2em;
+  margin: 0 0 2em 0;
 }
 
 .header-links {
@@ -62,6 +89,11 @@ header {
 
 .header-link {
   display: inline;
+  color: $header;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  background: #2a2a2a;
+  border-radius: 2px;
 }
 
 header h1 {
@@ -70,19 +102,17 @@ header h1 {
   margin: 0;
   text-align: center;
   font-weight: bold;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: $conifer;//$header;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-               0 0 5px rgba(181, 232, 83, 0.1),
-               0 0 10px rgba(181, 232, 83, 0.1);
+  font-family: Hack;
+  color: $gallery;
   letter-spacing: -1px;
+  padding: 1em 0;
   -webkit-font-smoothing: antialiased;
 }
 
 header h2 {
   font-size: 18px;
-  font-weight: 300;
-  color: #666;
+  color: #ccc;
+  text-align: center;
 }
 
 /* Main Content
@@ -97,13 +127,9 @@ section img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-weight: bold;
+  font-family: Hack;
   color: $header;
-  letter-spacing: -0.03em;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-               0 0 5px rgba(181, 232, 83, 0.1),
-               0 0 10px rgba(181, 232, 83, 0.1);
 }
 
 #main_content h1 {
@@ -151,11 +177,9 @@ blockquote {
 }
 
 pre {
-  background: rgba(0, 0, 0, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.05);
   padding: 10px;
   font-size: 16px;
-  color: #b5e853;
   border-radius: 2px;
   text-wrap: normal;
   overflow: auto;
@@ -163,11 +187,10 @@ pre {
 }
 
 code.highlighter-rouge {
-  background: rgba(0,0,0,0.9);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 0px 3px;
-  margin: 0px -3px;
-  color: #aa759f;
+  background: rgba(#000,0.1);
+  padding: 2px 8px;
+  margin: 0px -4px;
+  color: #818a5e;
   border-radius: 2px;
 }
 
@@ -178,7 +201,7 @@ table {
 
 th {
   text-align: left;
-  border-bottom: 1px dashed #b5e853;
+  border-bottom: 1px dashed $header;
   padding: 5px 10px;
 }
 
@@ -189,7 +212,7 @@ td {
 hr {
   height: 0;
   border: 0;
-  border-bottom: 1px dashed #b5e853;
+  border-bottom: 1px dashed $header;
   color: #b5e853;
 }
 
@@ -235,8 +258,9 @@ hr {
 */
 
 a {
-  color: #63c0f5;
-  text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
+  color: $header;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 a:active, a:focus {
@@ -269,5 +293,5 @@ a:active, a:focus {
 }
 
 #wrapper {
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 150px);
 }
