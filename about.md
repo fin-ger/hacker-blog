@@ -8,5 +8,6 @@ for hacker problems hackers usually don't have...
 
 # My Stuff
 
- - [github](github.com/fin-ger)
- - IRC freenode `fin_ger`
+[![](https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png)](https://github.com/fin-ger)
+
+IRC freenode `fin_ger`
