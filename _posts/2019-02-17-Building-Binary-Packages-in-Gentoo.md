@@ -21,4 +21,12 @@ $ docker run -p 3000:3000 -v /usr/portage/packages:/content fin1ger/serve --auth
 
 The source code for the go program is located on [github](https://github.com/fin-ger/serve).
 
+When doing your next system upgrade you can just use `--buildpkg` on your `emerge` command and binary packages will be build automatically for all packages of this upgrade.
+
+Or short:
+
+```
+$ emerge -NDauvb
+```
+
 After all, remember always keeping a backup of your previous system as things can go wrong any time (not that *I* have bricked my system when doing this)...
