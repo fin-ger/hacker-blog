@@ -29,7 +29,7 @@ location:
 
 The first lines are quite straight forward, however the storage section of my configuration has some good hints. I realized that `zstd` at compression level 3 is best suited for my backups according cpu load and overall size. To let the backups run automatically borg needs to know which ssh key to use, so providing it explicitly makes borg independent of the underlying systems understanding of the ssh-key path.
 
-```
+```yaml
 storage:
   encryption_passphrase: "my password"
   compression: zstd,3
@@ -38,7 +38,7 @@ storage:
 
 The retention section configures which backups are stored for how long. It provides a better rotation strategy than just removing old backups.
 
-```
+```yaml
 retention:
   keep_daily: 7
   keep_weekly: 4
@@ -62,7 +62,7 @@ When one borg action is running on a borg repository the repository gets locked 
 
 After you verified that your configuration is running you should automate things. Preferably you do this with a systemd service as a system process. I am using the following `borgmatic.service` file for that:
 
-```
+```ini
 [Unit]
 Description=borgmatic backup
 StartLimitIntervalSec=300
@@ -88,7 +88,7 @@ $ systemctl start borgmatic.service
 
 To make this now run every day I created a systemd timer:
 
-```
+```ini
 [Unit]
 Description=runs borgmatic daily
 
