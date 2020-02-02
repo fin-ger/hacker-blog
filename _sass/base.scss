@@ -33,11 +33,49 @@
   font-style: italic;
 }
 
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../assets/Inter-Regular.woff2?v=3.11") format("woff2"),
+         url("../assets/Inter-Regular.woff?v=3.11") format("woff");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../assets/Inter-Medium.woff2?v=3.11") format("woff2"),
+         url("../assets/Inter-Medium.woff?v=3.11") format("woff");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("../assets/Inter-SemiBold.woff2?v=3.11") format("woff2"),
+         url("../assets/Inter-SemiBold.woff?v=3.11") format("woff");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../assets/Inter-Bold.woff2?v=3.11") format("woff2"),
+         url("../assets/Inter-Bold.woff?v=3.11") format("woff");
+}
+
 $body-background: #fff !default;
 $body-foreground: $cod-grey !default;
-$header: #c1b900 !default;
-$blockquote-color: $silver-chalice !default;
-$blockquote-border: $dove-grey !default;
+$header: #B3B312 !default;
+$header-bg: #7D298A !default;
+$blockquote-color: #777 !default;
+$blockquote-border: $header-bg !default;
+$blockquote-bg: #f5f5f5 !default;
 
 body {
   margin: 0;
@@ -46,14 +84,14 @@ body {
   color: $body-foreground;
   font-size: 16px;
   line-height: 1.5;
-  font-family: Hack;
+  font-family: Inter;
 }
 
 /* General & 'Reset' Stuff */
 
 .container {
   width: 90%;
-  max-width: 1000px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
@@ -78,7 +116,7 @@ li {
 */
 
 header {
-  background: #311036;
+  background: darken($header-bg, 15%);
   padding: 2em;
   margin: 0 0 2em 0;
 }
@@ -89,11 +127,20 @@ header {
 
 .header-link {
   display: inline;
-  color: $header;
+  color: $header !important;
   font-weight: bold;
+  font-family: Hack;
   padding: 0.25em 0.5em;
-  background: #2a2a2a;
+  background: #222;
   border-radius: 2px;
+}
+
+header > div > a, header > div > a > * {
+  color: #eaeaea !important;
+}
+
+header > div > a:hover {
+  text-decoration: none;
 }
 
 header h1 {
@@ -102,7 +149,7 @@ header h1 {
   margin: 0;
   text-align: center;
   font-weight: bold;
-  font-family: Hack;
+  font-family: Inter;
   color: $gallery;
   letter-spacing: -1px;
   padding: 1em 0;
@@ -128,8 +175,8 @@ section img {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
-  font-family: Hack;
-  color: $header;
+  font-family: Inter;
+  color: $header !important;
 }
 
 #main_content h1 {
@@ -167,30 +214,42 @@ dt {
 }
 
 ul li {
-  list-style-image:url('../assets/bullet.png');
+  list-style-type: square;
+  color: $header;
+}
+
+ul li * {
+  color: $body-foreground;
 }
 
 blockquote {
   color: $blockquote-color;
-  padding-left: 10px;
-  border-left: 1px dotted $blockquote-border;
+  background-color: $blockquote-bg;
+  margin: 2em;
+  padding: 0.25em 1em 0.25em 1em;
+  border-left: 0.6em solid $blockquote-border;
 }
 
 pre {
   background: rgba(0, 0, 0, 0.05);
   padding: 10px;
-  font-size: 16px;
+  font-size: 0.9em;
   border-radius: 2px;
   text-wrap: normal;
   overflow: auto;
   overflow-y: hidden;
+  font-family: Hack;
+}
+
+code {
+  font-family: Hack;
+  font-size: 0.9em;
 }
 
 code.highlighter-rouge {
   background: rgba(#000,0.1);
   padding: 2px 8px;
-  margin: 0px -4px;
-  color: #818a5e;
+  color: $header-bg;
   border-radius: 2px;
 }
 
@@ -201,7 +260,7 @@ table {
 
 th {
   text-align: left;
-  border-bottom: 1px dashed $header;
+  border-bottom: 1px dashed $header !important;
   padding: 5px 10px;
 }
 
@@ -212,7 +271,7 @@ td {
 hr {
   height: 0;
   border: 0;
-  border-bottom: 1px dashed $header;
+  border-bottom: 1px dashed $header !important;
   color: #b5e853;
 }
 
@@ -258,15 +317,16 @@ hr {
 */
 
 a {
-  color: $header;
+  color: $header !important;
   text-decoration: none;
   font-weight: bold;
 }
 
-a:active, a:focus {
+a:active, a:focus, a:hover {
   outline: 0;
   border: none;
-  -moz-outline-style: none
+  -moz-outline-style: none;
+  text-decoration: underline;
 }
 
 /* Clearfix */
