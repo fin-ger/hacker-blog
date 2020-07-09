@@ -5,9 +5,9 @@ published: true
 
 Yesterday, I plugged in my Logitech mouse into my laptop and started reading a PDF file. I started scrolling the page and realized that the scrolling is not as smooth as with my touchpad. The difference is that the touchpad scrolls the PDF pixel-by-pixel, whereas my mouse scrolls the PDF with one scroll-wheel click roughly 3 lines at once.
 
-I previously had a look into the HID++ protocol of Logitech mice to [enable the thumb button of my M720](https://github.com/fin-ger/logitech-m720-config), and did know that my mouse a a high-resolution mode for the scroll-wheel. So, technically it is possible to get high-resolution scrolling data from my mouse and translate it to smooth pixel-perfect scrolling in my PDF viewer.
+I previously had a look into the HID++ protocol of Logitech mice to [enable the thumb button of my M720](https://github.com/fin-ger/logitech-m720-config), and did know that my mouse has a high-resolution mode for the scroll-wheel. So, technically it is possible to get high-resolution scrolling data from my mouse and translate it to smooth pixel-perfect scrolling in my PDF viewer.
 
-I searched the internet, read systemd source code, digged into libinput documentation, and finally found a way to achieve pixel-perfect scrolling! 🎉
+I searched the internet, read systemd source code, dug into libinput documentation, and finally found a way to achieve pixel-perfect scrolling! 🎉
 
 ## Here is how to set it up!
 
